@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Testing</title>
+    <link rel="stylesheet" href="/css/croptesting.css" />
+</head>
+
+<body>
+    <div id="container">
+        <div id="button-container">
+            <button type="button" id="crop"> Crop </button>
+            <button type="button" id="cut"> Cut </button>
+            <button type="button" id="download"> Download </button>
+            <button type="button" id="testplugins"> Test Plugins </button>
+        </div>
+    </div>
+</body>
+<% if (format==="esm" ) { %>
+    <script type="module" src="/js/croptesting-module.js"></script>
+    <% } else { %>
+        <script type="text/javascript" src="/dist/srkimgedit.umd.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let obj = new SrkImgEdit.Canvas();
+                const path = "/img/croptesting.jpg";
+                document.getElementById("container").appendChild(obj.getCanvas());
+                obj.drawImage(path, { fitImagetoCanvas: true });
+                document.getElementById("crop").addEventListener("click", () => {
+                    obj.applyPlugin("crop", {
+                        canvasToApplyCrop: obj.getCanvas(),
+                        imagePathToApplyCrop: path,
+                    });
+                });
+                document.getElementById("cut").addEventListener("click", () => {
+                    obj.applyPlugin("cut");
+                });
+                document.getElementById("download").addEventListener("click", () => {
+                    const date = new Date();
+                    obj.downloadImage(date.toISOString());
+                });
+                document.getElementById("testplugins").addEventListener("click", () => {
+                    console.log(obj.getAvailablePlugins());
+                    console.log(obj.getPluginParameter("crop"));
+                    console.log(obj.getPluginParameter("cut"));
+                });
+            });
+        </script>
+        <% } %>
+
+</html>

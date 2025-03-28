@@ -1,0 +1,51 @@
+{
+  "name": "srkimgedit",
+  "version": "1.0.0",
+  "description": "JavaScript library for image editing",
+  "main": "dist/srkimgedit.cjs.js",
+  "module": "dist/srkimgedit.esm.js",
+  "browser": "dist/srkimgedit.umd.js",
+  "types": "types/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Karthick01234/srkimgedit.js.git"
+  },
+  "keywords": [
+    "js",
+    "imgedit",
+    "canvas"
+  ],
+  "author": {
+    "name": "Karthick S",
+    "email": "your-email@example.com",
+    "url": "https://github.com/Karthick01234"
+  },
+  "contributors": [
+    {
+      "name": "Contributor Name",
+      "email": "contributor@example.com",
+      "url": "https://github.com/contributor"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Karthick01234/srkimgedit.js/issues"
+  },
+  "homepage": "https://github.com/Karthick01234/srkimgedit.js#readme",
+  "files": [
+    "dist/",
+    "types/",
+    "README.md",
+    "LICENSE",
+    "CONTRIBUTORS.md"
+  ],
+  "devDependencies": {
+    "rollup": "^4.37.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-terser": "^0.4.4"
+  }
+}
